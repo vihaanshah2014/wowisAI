@@ -60,33 +60,8 @@
       appId: "1:490888137281:web:13f7d4d22c9532d1f054c0",
       measurementId: "G-H1TTCVV12D"
     };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const database = getDatabase(app);
 
-    // Get Google authentication button element
-    const googleButton = document.querySelector('.login-with-google-btn');
-
-    // Add event listener to Google authentication button
-    googleButton.addEventListener('click', () => {
-      // Create an instance of the Google provider object
-      const provider = new GoogleAuthProvider();
-
-      // Get the Auth instance
-      const auth = getAuth();
-
-      // Trigger a sign-in popup with the Google provider
-      auth.signInWithPopup(provider)
-        .then((result) => {
-          // Redirect to main.html upon successful authentication
-          window.location.href = 'main.html';
-        })
-        .catch((error) => {
-          // Handle authentication error
-          console.error(error);
-        });
-    });
+    var provider = new firebase.auth.GoogleAuthProvider();
 </script>
 
 
