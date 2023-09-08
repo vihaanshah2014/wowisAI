@@ -1,6 +1,15 @@
 // Initialize Firebase app
-const firebaseConfig = { /* your Firebase configuration here */ };
+const firebaseConfig = { 
+  apiKey: "AIzaSyBx4TTN924wfPBDmo2EuD0fXpmwD6EwagU",
+  authDomain: "makewowis.firebaseapp.com",
+  projectId: "makewowis",
+  storageBucket: "makewowis.appspot.com",
+  messagingSenderId: "490888137281",
+  appId: "1:490888137281:web:13f7d4d22c9532d1f054c0",
+  measurementId: "G-H1TTCVV12D"
+};
 firebase.initializeApp(firebaseConfig);
+
 
 // Get Google authentication button element
 const googleButton = document.querySelector('.login-with-google-btn');
