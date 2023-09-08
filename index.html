@@ -48,11 +48,9 @@
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
     import { getDatabase } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-database.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
+    import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
+
     // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
       apiKey: "AIzaSyBx4TTN924wfPBDmo2EuD0fXpmwD6EwagU",
       authDomain: "makewowis.firebaseapp.com",
@@ -68,24 +66,28 @@
     const database = getDatabase(app);
 
     // Get Google authentication button element
-const googleButton = document.querySelector('.login-with-google-btn');
+    const googleButton = document.querySelector('.login-with-google-btn');
 
-// Add event listener to Google authentication button
-googleButton.addEventListener('click', () => {
-  // Create an instance of the Google provider object
-  const provider = new firebase.auth.GoogleAuthProvider();
+    // Add event listener to Google authentication button
+    googleButton.addEventListener('click', () => {
+      // Create an instance of the Google provider object
+      const provider = new GoogleAuthProvider();
 
-  // Trigger a sign-in popup with the Google provider
-  firebase.auth().signInWithPopup(provider)
-    .then((result) => {
-      // Redirect to main.html upon successful authentication
-      window.location.href = 'main.html';
-    })
-    .catch((error) => {
-      // Handle authentication error
-      console.error(error);
+      // Get the Auth instance
+      const auth = getAuth();
+
+      // Trigger a sign-in popup with the Google provider
+      auth.signInWithPopup(provider)
+        .then((result) => {
+          // Redirect to main.html upon successful authentication
+          window.location.href = 'main.html';
+        })
+        .catch((error) => {
+          // Handle authentication error
+          console.error(error);
+        });
     });
-});
+</script>
 
-  </script> 
+
 </html>
